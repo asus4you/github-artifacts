@@ -48,5 +48,10 @@ jobs:
         uses: actions/download-artifact@v7
         with:
           name: dist-test
+      - name: Output filename
+        run: |
+          OUTPUT1=${{ needs.build.outputs.script-file }}
+          OUTPUT2=${{ needs.build.outputs.css-name }}
+          echo "$OUTPUT1 and $OUTPUT2"
       - name: Deploy
         run: echo "Deploying..."
